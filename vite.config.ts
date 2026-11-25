@@ -1,28 +1,38 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
-import { resolve } from "path";
+import { resolve } from "node:path";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [
     vue(),
 
-    dts({
-      insertTypesEntry: true,
-      include: ["src"],
-    }),
+    ...(command === "build"
+      ? [
+          dts({
+            insertTypesEntry: true,
+            include: ["src"],
+          }),
+        ]
+      : []),
   ],
 
-  build: {
-    lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "BeautifyUI",
-      formats: ["es", "cjs"],
-      fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
-    },
+  build:
+    command === "build"
+      ? {
+          outDir: "dist",
 
-    rollupOptions: {
-      external: ["vue"],
-    },
-  },
-});
+          lib: {
+            entry: resolve(import.meta.dirname, "src/index.ts"),
+            name: "Beaufity",
+            formats: ["es", "cjs"],
+            fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
+            cssFileName: "style",
+          },
+
+          rollupOptions: {
+            external: ["vue"],
+          },
+        }
+      : undefined,
+}));
