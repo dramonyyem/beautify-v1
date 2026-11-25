@@ -1,0 +1,88 @@
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE and editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Temporary files
+.tmp/
+.temp/
+
+# Vite
+.vite/
+
+# Local certificates and keys
+*.pem
+*.key
+
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE and editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Temporary files
+.tmp/
+.temp/
+
+# Vite
+.vite/
+
+# Local certificates and keys
+*.pem
+*.key
